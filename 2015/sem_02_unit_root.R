@@ -7,6 +7,7 @@ library("forecast")
 tsdisplay(x)
 tsdisplay(y)
 
+
 model <- lm(y ~ x)
 summary(model)
 
