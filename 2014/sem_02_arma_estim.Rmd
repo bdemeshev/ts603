@@ -1,0 +1,77 @@
+---
+title: "Оценка ARMA моделей в R"
+lang: russian
+output: html_document
+---
+  
+Подключаем пакет для оценки гарчей в R и прочие удобства:
+```{r, warning=FALSE, message=FALSE}
+library("lubridate")
+library("ggplot2")
+library("dplyr")
+library("xts")
+library("quantmod")
+library("forecast")
+```
+
+
+Загружаем цены акций Гугла:
+```{r}
+setlocale_result <- Sys.setlocale("LC_TIME","C")
+getsym_result <- getSymbols(Symbols = "GOOG", 
+           from="2014-08-01", to="2015-03-01",
+           src="google")
+```
+
+
+Смотрим на начало ряда 
+```{r}
+head(GOOG)
+y <- GOOG$GOOG.Close
+```
+
+
+Строим график ряда и ACF/PACF
+```{r}
+tsdisplay(y)
+```
+
+
+Оцениваем модель ARIMA(1,1,1):
+\[
+\triangle y_t = \phi_1 \triangle y_{t-1} +  \theta_1 \varepsilon_{t-1} + \varepsilon_t
+\]
+
+
+```{r}
+model <- Arima(y, order=c(1,1,1))
+summary(model)
+```
+
+Прогнозируем на 10 шагов вперед:
+```{r}
+prognoz <- forecast(model, h = 10)
+prognoz
+```
+
+
+Рисуем график прогноза:
+```{r}
+plot(prognoz)
+```
+
+Смотрим информационный критерий AIC:
+```{r}
+AIC(model)
+```
+
+Можно попросить R самостоятельно подобрать модель руководствуясь (упрощенно) информационным критерием:
+
+```{r}
+auto_model <- auto.arima(y)
+summary(auto_model)
+```
+
+Для ряда цен на акции Гугла автоматически выбирается модель случайного блуждания :)
+
+
