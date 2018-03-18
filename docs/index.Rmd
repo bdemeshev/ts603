@@ -11,9 +11,11 @@ output: html_document
 
 * Семинар 1. Определение стационарности. Подсчёт частных и обычных автокорреляций.
 
-* [Семинар 2](https://github.com/bdemeshev/ts603/blob/master/2015/sem_01_arma.R). ARMA-модели.
+* [Семинар 2](https://github.com/bdemeshev/ts603/raw/master/2015/sem_01_arma.R). ARMA-модели.
 
-* [Семинар 3](https://github.com/bdemeshev/ts603/blob/master/2015/sem_02_unit_root.R). Критерий стационарности. Единичный корень.
+* [Семинар 3](https://github.com/bdemeshev/ts603/raw/master/2015/sem_02_unit_root.R). Критерий стационарности. Единичный корень.
+
+* [Зачёт 2015](https://github.com/bdemeshev/ts603/raw/master/2015/zachet_15.pdf)
 
 ###  Материалы 2014-2015
 
@@ -25,7 +27,7 @@ output: html_document
 
 * [Домашка 2014](http://bdemeshev.github.io/ts603/2014/home_task_14.html). Маленькое домашнее задание 2014.
 
-* [Зачёт 2014](http://bdemeshev.github.io/ts603/2014/zachet_14.pdf) Зачёт 2014
+* [Зачёт 2014](https://github.com/bdemeshev/ts603/raw/master/2014/zachet_14.pdf)
 
 ###  Материалы 2013-2014
 
