@@ -1,11 +1,24 @@
 ---
-title: "Временные ряды. Банковский институт"
+title: "Time series. CFA program"
 output: html_document
 ---
 
-### Литература
+### Some sources
 
-* Shumway, Stoffer, [Time Series with applications and R examples](http://www.stat.pitt.edu/stoffer/tsa3/)
+* Rob Hyndman, [Forecasting Principles and Practice](https://otexts.com/fpp2/)
+
+* Ruey Tsay, [Teaching page](http://faculty.chicagobooth.edu/ruey.tsay/teaching/)
+
+* Shumway, Stoffer, [Time Series with applications and R examples](https://www.stat.pitt.edu/stoffer/tsa4/)
+
+### Materials 2018-2019
+
+* Seminar 1. Plot your [time series](http://bdemeshev.github.io/ts603/2018_2019/report_01.html)
+
+
+### Materials 2017-2018
+
+* [Final Exam](https://github.com/bdemeshev/ts603/raw/master/2017/final_2017_18/final_2017_18.pdf)
 
 ###  Материалы 2015-2016
 

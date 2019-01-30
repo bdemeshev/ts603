@@ -1,0 +1,46 @@
+---
+title: "Untitled"
+author: "Winnie the Pooh"
+date: "1/30/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+Click green "+", than R-markdown :)
+
+Click to "Code", than "Insert chunk":
+```{r}
+library(forecast) # forecasting time series
+library(tsibble) # modern format to store time series
+library(sophisthse) # download data from sophist.hse.ru
+```
+
+Let's generate normal white noise
+```{r}
+eps = rnorm(200, mean = 0, sd = 5)
+head(eps, 7)
+```
+
+Let's plot our time series
+```{r}
+ggtsdisplay(eps)
+```
+
+Let's download russian monthly wages
+```{r}
+wages = sophisthse("WAG_M")
+head(wages, 5)
+y = wages[, 1]
+ggtsdisplay(y)
+z = diff(log(y))
+ggtsdisplay(z)
+```
+
+
+
+
+
+
+
+
