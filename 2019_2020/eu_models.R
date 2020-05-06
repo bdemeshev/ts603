@@ -2,8 +2,18 @@ library(tidyverse)
 library(rio)
 library(fable)
 library(lubridate)
+# devtools::install_github("tidyverts/fasster")
+library(fasster)
 library(tsibble)
+# library(tsibble)
+
+
+
 euro = import("~/Downloads/eu_data_2.xlsx") # наны в германии, потому что данных нет
+# head, tail
+
+
+
 
 euro = import("Desktop/Диплом/eu_data.xlsx") # наны в германии, потому что данных нет
 warnings() ## как указать наны, чтоб он понял или просто убрать?
@@ -63,8 +73,7 @@ accuracy(mtable1)
 
 
 ##fasster не работал, потому что он не скачан был, но он все равно не начал работать
-devtools::install_github("tidyverts/fasster")
-library(fasster) ## не получается скачать
+ ## не получается скачать
 mtable2 = model(eu1,fasster = FASSTER(value ~ poly(1)))
 
 ## Модели с трендом. Не уверена, что сделала правильно

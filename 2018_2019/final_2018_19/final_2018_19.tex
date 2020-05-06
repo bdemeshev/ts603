@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+
+\usepackage{tikz} % картинки в tikz
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amssymb} % куча стандартных математических плюшек
+
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{minted}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series}
+\chead{}
+\rhead{2019-03-28, final exam}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos --- печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+\setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+\newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+%\setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{E}
+\def \hb{\hat{\beta}}
+\def \hs{\hat{\sigma}}
+\def \htheta{\hat{\theta}}
+\def \s{\sigma}
+\def \hy{\hat{y}}
+\def \hY{\hat{Y}}
+\def \v1{\vec{1}}
+\def \e{\varepsilon}
+\def \he{\hat{\e}}
+\def \z{z}
+\def \hVar{\widehat{\Var}}
+\def \hCorr{\widehat{\Corr}}
+\def \hCov{\widehat{\Cov}}
+\def \cN{\mathcal{N}}
+
+
+\begin{document}
+
+\begin{enumerate}
+
+
+  \item Consider stationary process $y_t = 2 + 0.3y_{t-1} + u_t - u_{t-1}$, where $u_t$ is a white noise with $\Var(u_t)=\sigma^2_u$.
+    \begin{enumerate}
+      \item Find $\E(y_t)$, $\Var(y_t)$ and first values of autocovariance function $\gamma_1$, $\gamma_2$;
+      \item Find the first values of autocorrelation function, $\rho_1$, $\rho_2$;
+      \item Find the first values of partial autocorrelation function, $\phi_{11}$, $\phi_{22}$;
+    \end{enumerate}
+
+
+  \item It is known that $u_{100} = 0.5$, $y_{100}=4.5$, $\Var(u_t)=9$
+    and $y_t$ is defined by equation $y_t = 2 + 0.3 y_{t-1} + u_t - u_{t-1}$, where $u_t$ is a white noise.
+
+    \begin{enumerate}
+      \item Make one-step and two-steps point forecasts: find $\E(y_{101}|\mathcal{F}_{100})$ and $\E(y_{102}|\mathcal{F}_{100})$.
+      \item Assuming normal distribution of $u_t$ construct 95\% prediction intervals for $y_{101}$ and $y_{102}$.
+      \item What is higher $\P(y_{101}>3 |\mathcal F_{100})$ or $\P(y_{102}>3 |\mathcal F_{100})$? Briefly argue why.
+    \end{enumerate}
+
+
+\item Find the equation of the process with partial autocorrelation function given by $\phi_{11}=0.9$, $\phi_{22}=-0.9$, $\phi_{kk}=0$ for $k \geq 3$.
+
+
+\item This is the output of seasonal ARIMA model estimation in R for the number of marriages in Russia.
+     Data from 2006 to 2018 are used.
+\begin{minted}[mathescape,
+               linenos,
+               numbersep=5pt,
+               frame=lines,
+               framesep=2mm]{julia}
+  ARIMA(0,1,1)(1,1,2)[12]
+
+  Coefficients:
+            ma1     sar1     sma1     sma2
+        -0.8544  -0.2677  -0.5076  -0.3289
+  s.e.   0.0540   0.5048   0.5103   0.4107
+
+  sigma^2 estimated as 150821423:  log likelihood=-1545.24
+  AIC=3100.49   AICc=3100.93   BIC=3115.26
+\end{minted}
+
+\begin{enumerate}
+\item Is the number of marriages stationary? Which transformation will make it stationary?
+\item Write down the estimated equation.
+\end{enumerate}
+
+\newpage
+\item Consider Holt’s linear model with additive errors, $\varepsilon_t \sim \cN(0;\sigma^2)$ are independent.
+\[
+\begin{cases}
+y_t = \ell_{t-1} + b_{t-1} + \varepsilon_t \\
+\ell_t = \ell_{t-1} + b_{t-1} + \alpha \varepsilon_t \\
+b_t = b_{t-1} + \beta \varepsilon_t \\
+\end{cases}
+\]
+
+Here $y_t$ — is the observed value of the variable of interest, $\ell_t$ — unobserved ideal level of the variable of interest, $b_t$ — unobserved current growth rate of the variable.
+
+
+Represent this model as $ARIMA(0, 2, 2)$-model for $y_t$. Find all the coefficients of this $ARIMA$ representation.
+
+
+\item Using 200 observations James Bond has estimated the regression
+\[
+\Delta \hat y_t = \underset{(0.2)}{4} - \underset{(0.3)}{0.8} y_{t-1} +  \underset{(0.2)}{0.9} \Delta y_{t-1}
+\]
+Standard errors are in brackets. Check whether the process $y_t$ is stationary.
+
+Critical values for Dickey-Fuller statistic for 5\% critical level are provided below:
+
+\begin{tabular}{cccc}
+	\toprule
+	& $\tau_0$ & $\tau_c$ & $\tau_t$  \\
+	\midrule
+	$n=100$ & $-1.95$ & $-2.89$ & $-3.45$  \\
+	$n=200$ & $-1.95$ & $-2.88$ & $-3.43$ \\
+	\bottomrule
+\end{tabular}
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
