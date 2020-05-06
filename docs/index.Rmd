@@ -3,18 +3,23 @@ title: "Time series. CFA program"
 output: html_document
 ---
 
-### Some sources
+### Books
 
-* Rob Hyndman, [Forecasting Principles and Practice](https://otexts.com/fpp2/)
+* Rob Hyndman, [Forecasting Principles and Practice](https://otexts.com/fpp3/)
 
 * Ruey Tsay, [Teaching page](http://faculty.chicagobooth.edu/ruey.tsay/teaching/)
 
 * Shumway, Stoffer, [Time Series with applications and R examples](https://www.stat.pitt.edu/stoffer/tsa4/)
 
+### Materials 2019-2020
+
+* Final exam 
+
 ### Materials 2018-2019
 
 * Seminar 1. Plot your [time series](http://bdemeshev.github.io/ts603/2018_2019/report_01.html)
 
+* [Final exam](https://github.com/bdemeshev/ts603/raw/master/2018_2019/final_2018_19/final_2018_19.pdf)
 
 ### Materials 2017-2018
 
@@ -49,3 +54,10 @@ output: html_document
 * [PACF/GARCH](https://github.com/bdemeshev/ts603/raw/master/2013/bints_ts_pacf_garch.R)
 
 * [Зачёт 2013](https://github.com/bdemeshev/ts603/raw/master/2013/binst_ts_exam_14/binst_ts_exam_14.pdf)
+
+
+### More links
+
+* Course [repository](https://github.com/bdemeshev/ts603)
+
+* Черновик [задачника](https://github.com/bdemeshev/ts_pset)
