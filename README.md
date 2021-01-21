@@ -1,7 +1,4 @@
----
-title: "Time series. CFA program"
-output: html_document
----
+# Time Series Analysis
 
 ### Books
 
