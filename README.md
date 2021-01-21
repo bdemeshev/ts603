@@ -59,6 +59,4 @@
 
 ### More links
 
-* Course [repository](https://github.com/bdemeshev/ts603)
-
 * Черновик [задачника](https://github.com/bdemeshev/ts_pset)
