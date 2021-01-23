@@ -1,0 +1,183 @@
+\documentclass[12pt]{article}
+
+\usepackage{tikz} % картинки в tikz
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amssymb} % куча стандартных математических плюшек
+
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time series}
+\chead{}
+\rhead{2020-10-01, retake}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos --- печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+\setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+\newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+%\setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{E}
+\def \hb{\hat{\beta}}
+\def \hs{\hat{\sigma}}
+\def \htheta{\hat{\theta}}
+\def \s{\sigma}
+\def \hy{\hat{y}}
+\def \hY{\hat{Y}}
+\def \v1{\vec{1}}
+\def \e{\varepsilon}
+\def \he{\hat{\e}}
+\def \z{z}
+\def \hVar{\widehat{\Var}}
+\def \hCorr{\widehat{\Corr}}
+\def \hCov{\widehat{\Cov}}
+\def \cN{\mathcal{N}}
+
+
+\begin{document}
+
+\section*{Promo-code activation :)}
+
+You have two options! 
+
+You can try to solve all the proposed problems and submit your solutions as a pdf file.
+In this case I will honestly grade them.
+
+You can write a promo-code \#arma\_da. 
+In this case I will ignore your solutions and grade your exam as 4/10. 
+
+\section*{Problems}
+
+\begin{enumerate}
+
+\item Consider a stationary solution of the equation $y_t = 3 + 0.4y_{t-1} + u_t - 0.5u_{t-1}$, 
+	where $u_t$ is a white noise process. 
+
+\begin{enumerate}
+	\item Calculate $\E(y_t)$, first two values of autocorrelation and partial autocorrelation functions.
+	\item Assuming normality and independence of $u_t$, $u_t \sim \cN(0; 9)$, $u_{100}=-1$, $y_{100}=5$, 
+	calculate short-term 95\% predictive interval for $y_{101}$ and long-term 95\% predictive interval for $y_{100+h}$ 
+	where $h \to \infty$.
+\end{enumerate}
+	
+
+
+\item Consider a stationary solution of the equation $y_t = 3 + 0.7y_{t-1} -0.12y_{t-2} + u_t$, 
+where $u_t$ is a white noise process. 
+
+James Bond assumes the wrong model $y_t = \beta_1 + \beta_2 y_{t-1} + u_t$ 
+and estimate the regression $\hat y_t = \hat\beta_1 + \hat\beta_2 y_{t-1}$ by OLS.
+
+\begin{enumerate}
+	\item Find the probability limit of $\hat\beta_1$ and $\hat\beta_2$. 
+	\item Using $\hat\beta_1$, $\hat\beta_2$ and his wrong assumption James Bond tries to estimate $\mu = \E(y_t)$. 
+	Find the probability limit of this estimator $\hat\mu$. Will it be consistent?
+\end{enumerate}
+
+\item Consider a $ETS(AAA)$ model for monthly data described by the system
+
+\[
+\begin{cases}
+y_t = \ell_{t-1} + b_{t-1} + s_{t-12} +  \varepsilon_t \\
+\ell_t = \ell_{t-1} + b_{t-1} + \alpha \varepsilon_t \\
+b_t = b_{t-1} + \beta \varepsilon_t \\
+s_t = s_{t-12} + \gamma \varepsilon_t \\
+\end{cases}
+\]
+
+Represent it as ARIMA model. Find all the coefficients of this $ARIMA$ representation.
+
+
+\newpage
+\item Consider two independent $MA(1)$ process with zero expected value and unit variance, $A_t$ and $B_t$.
+The first values of autocorrelation function are $\rho_1^A = 0.3$ and $\rho_1^B=0.3$.
+
+The process $S_t$ is just the sum of these two, $S_t = A_t + B_t$.
+
+\begin{enumerate}
+	\item Classify $S_t$ as $ARIMA(p, d, q)$ process. Find $p$, $d$ and $q$.
+	\item Calculate the autocorrelation function for $S_t$. 
+\end{enumerate}
+
+\item Consider the process $y_t = u_1 \sin 2t + u_2 \cos 2t$, where $u_t$ — is a white noise.
+
+\begin{enumerate}
+	\item Is $y_t$ stationary?
+	\item Can $y_t$ be represented as $ARIMA(p, d, q)$ process? Find $p$, $d$, $q$ if possible.
+\end{enumerate}
+
+Hint: $\cos(a+b) = \cos a \cos b - \sin a \sin b$, $\sin (a + b) = \sin a \cos b + \sin b \cos a$. 
+
+
+\item Variables $(x_t)$ are independent and are equal to $0$ or $1$ with equal probability, 
+$u_t$ are independent $\cN(0; 1)$. Consider the process $z_t = x_t^2 (1-x_{t-1}) u_t$.
+
+\begin{enumerate}
+	\item Is $z_t$ a stationary process? Find its autocorrelation function if it is stationary.
+	\item You know that $z_{100} = 2.3$. Find one and two step ahead point and interval forecasts.
+	What is special about interval forecasts in this case?
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
