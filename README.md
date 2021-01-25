@@ -10,7 +10,9 @@
 
 ### Materials 2020-2021
 
+Class 1. Intro to python, forecasting with naive and ETS(AAA) model: [ipynb A](https://github.com/bdemeshev/ts603/blob/master/2021-spring/BI_TSA_Sem_1a.ipynb), [ipynb B](https://github.com/bdemeshev/ts603/blob/master/2021-spring/BI_TSA_Sem_1b.ipynb).
 
+Lecture 1 and 2. ETS(AAA) model and variants: decomposition and forecasting: [pdf](https://github.com/bdemeshev/ts603/raw/master/2021-spring/lecture_01.pdf).
 
 ### Materials 2019-2020
 
