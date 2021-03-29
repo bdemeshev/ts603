@@ -14,7 +14,7 @@ Class 1. Intro to python, forecasting with naive and ETS(AAA) model: [ipynb A](h
 
 Lecture 1 and 2. ETS(AAA) model and variants: decomposition and forecasting: [pdf](https://github.com/bdemeshev/ts603/raw/master/2021-spring/lecture_01.pdf).
 
-[Exam upload link](https://classroom.github.com/classrooms/71732440-binst-ts-2021-spring/assignments/exam-online-upload)
+[Exam upload link](https://classroom.github.com/a/ihT2Ghwf)
 
 ### Materials 2019-2020
 
