@@ -1,3 +1,8 @@
 *.synctex.gz
 *.yaml
 _minted*
+*.fls
+*.log
+*.xdv
+*.fdb_latexmk
+*.aux
